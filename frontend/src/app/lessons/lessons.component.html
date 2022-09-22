@@ -1,0 +1,148 @@
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">                     
+                    <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/adminAccepting">Početna
+                            </a>
+                         </li>
+                     </div>
+                    
+
+                    <div *ngIf="korisnik.tip!='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/allGroups">Početna
+                            </a>
+                         </li>
+                    </div>
+                     
+                    
+
+                     <div *ngIf="korisnik.tip=='profesor'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/groupCreating">Napravi grupu
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/lessons">Sve lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='student'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/globalLessons">Globalne lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/profile">Moj profil
+                        </a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                    
+                </ul>
+            </nav>
+         </div>
+    </div>
+<div class="row text-center" >
+    <div class="col-12">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr >
+                    <th colspan="8">
+                        <h2>Lekcije grupe</h2>
+                    </th>
+                <tr >
+                    <th>Ime </th>
+                    <th>Slika</th>
+                    <th>Poglavlja</th>
+                    <th>Zadaci</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let lekcija of grupa.lekcije">
+                    <td>{{lekcija.ime}}</td>
+                    <td><img style="width:75 px;height: 75px;" src="{{lekcija.slika}}"></td>
+                    <td>
+                    <div *ngFor="let p of lekcija.poglavlja;let i = index">
+                        {{i+1}}.{{p.ime}}
+                    </div>    
+                    </td>
+                    <td> 
+                        <div *ngFor="let z of lekcija.zadaci;let i = index">
+                            {{i+1}}.{{z.ime}}
+                        </div>    
+                        </td>
+
+
+                        
+                    <td>
+                        <div *ngIf="korisnik.tip=='profesor'">
+                            <input class="btn btn-success" (click)='dodajZadatak(lekcija)' type="submit" value="Dodaj zadatak">
+                        </div>
+                        
+                    </td>
+
+
+                    <td > 
+                        <div *ngIf="korisnik.tip=='student'">
+                        <input class="btn btn-success" (click)='radiZadatke(lekcija.zadaci)'  type="submit" value="Radi zadatke">
+                        </div>
+                    </td>
+
+
+                    <td> 
+                        <div *ngIf="korisnik.tip=='profesor'">
+                            <input class="btn btn-warning" (click)='dodajPoglavlje(lekcija)'  type="submit" value="Dodaj poglavlje">
+                        </div>
+                        
+                    </td>
+                    <td> 
+                        <input class="btn btn-primary" (click)='pogledajLekciju(lekcija)'  type="submit" value="Pogledaj lekciju">
+                    </td>
+
+                   
+                    </tr>
+
+                <tr>
+                    <td colspan="8">
+                        <h2>{{poruka}}
+                        </h2>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+       <app-add-exercise *ngIf="addExercise" [lekcija]="lekcijaZaDodavanje"></app-add-exercise>
+        <app-add-paragraph *ngIf="addParagraph" [lekcija]="lekcijaZaDodavanje" ></app-add-paragraph> 
+        <app-excercise-choosing *ngIf="chooseExcersise" ></app-excercise-choosing>
+
+       
+    </div>
+</div>
+<div class="text-center" style="display:flex;flex-direction: row;  justify-content: space-between;">
+        <img src="../../assets/images/picture12.jpg" height="410px" width="700px">  
+        <img src="../../assets/images/picture11.jpg" height="410px" width="700px"> 
+        <img src="../../assets/images/picture12.jpg" height="410px" width="700px">   
+</div>
+<div class="row" >
+    <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vučinić - Elektrotehnički fakultet 2022.All rights reserved</div>
+</div>

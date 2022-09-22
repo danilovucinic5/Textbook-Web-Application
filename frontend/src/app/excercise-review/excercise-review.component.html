@@ -1,0 +1,148 @@
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">                     
+                    <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/adminAccepting">Početna
+                            </a>
+                         </li>
+                     </div>
+                    
+
+                    <div *ngIf="korisnik.tip!='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/allGroups">Početna
+                            </a>
+                         </li>
+                    </div>
+                     
+                    
+
+                     <div *ngIf="korisnik.tip=='profesor'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/groupCreating">Napravi grupu
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/lessons">Sve lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='student'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/globalLessons">Globalne lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/profile">Moj profil
+                        </a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                </ul>
+            </nav>
+         </div>
+    </div>
+
+    <div class="row text-center">
+        <h1>{{poruka}}</h1>
+    </div>
+   
+<div *ngFor="let zadatak of zadaci;let i = index">
+    
+    <div class="row text-center" >
+        <div class="col-12">
+            
+         <h4>{{i+1}}.{{zadatak.ime}}</h4>          
+        </div>
+
+    </div>
+
+    <div class="row text-center" >
+        <div class="col-12">
+            
+            {{zadatak.text}}          
+        </div>
+
+    </div>
+    <div class="row text-center" >
+        <div class="col-12">
+            <img  style="max-width:200px;max-height:200px;width:auto;height:auto;" src="{{zadatak.slika}}"> 
+   
+        </div>
+
+    </div>
+    <div *ngIf="zadatak.tip=='unos'" class="row text-center" >
+        <div class="col-12">
+            Unesite odgovor    <input type="text" [(ngModel)]="unos[i][0]">       
+        </div>
+
+    </div>
+    <div *ngIf="zadatak.tip=='stikliranje'" class="row text-center" >
+        <div *ngFor="let ponudjeni of zadatak.ponudjeniOdgovori;let j = index" >
+            
+           <input type="checkbox" name="box" [(ngModel)]="unos[i][j]" value={{ponudjeni}}>{{ponudjeni}}        
+         
+        </div>
+
+    </div>
+
+    <div *ngIf="zadatak.tip=='biranje'" class="row text-center" >
+        <div class="col-12">
+            
+            <div *ngFor="let ponudjeni of zadatak.ponudjeniOdgovori;let j = index" >
+              <label for="{{j}}" class="radio">
+                <input type="radio" name="myRadioField" id="{{j}}" class="radio__input"  value="{{ponudjeni}}"  [(ngModel)]="unos[i][0]">
+                <div class="radio__radio"></div> {{ponudjeni}}</label>
+            </div>          
+        </div>
+
+    </div>
+
+    <div style="margin-top: 20px"  class="row text-center" >
+        <div class="col-12">
+            
+            <button class="btn btn-primary" style="margin-right: 10px;" (click)="checkResult(zadatak,i)">Proveri</button>   
+            <button class="btn btn-success" style="margin-left: 10px;" (click)="showResult(zadatak,i)">Prikaži rešenje</button>         
+        </div>
+       
+    </div>
+
+    <div style="margin-top: 20px"  class="row text-center" >
+        <div class="col-12">
+            
+            <h3 style="color:green">{{porukeTacno[i]}}</h3>
+        </div>
+
+    </div>
+    <div style="margin-top: 20px"  class="row text-center" >
+        <div class="col-12">
+            
+            <h3 style="color:red">{{porukeNetacno[i]}}</h3>
+        </div>
+
+    </div>
+<hr>
+    
+</div>
+
+        
+
+
+
+
+<div class="row" >
+    <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vučinić - Elektrotehnički fakultet 2022.All rights reserved</div>
+</div>

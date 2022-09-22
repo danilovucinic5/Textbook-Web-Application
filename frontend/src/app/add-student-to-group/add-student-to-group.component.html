@@ -1,0 +1,30 @@
+<div class="row text-center" >
+    <div class="col-12">
+        
+       
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr >
+                    <th colspan="2">
+                        <h2>Dodajte studenta u grupu</h2>
+                    </th>
+                
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Unesite korisničko ime studenta kog želite da dodate</td>
+                    <td><input type="text" [(ngModel)]="korisnicko_imeStudenta" ></td>
+                </tr>   
+                <tr>
+                    <td colspan="2"><input class="btn btn-success" (click)='dodajStudenta()' type="submit" value="Dodaj studenta"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h2>{{message}}</h2></td>
+                </tr>     
+                    
+                
+            </tbody>
+        </table>

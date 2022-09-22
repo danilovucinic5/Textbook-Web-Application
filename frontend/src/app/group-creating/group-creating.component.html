@@ -1,0 +1,138 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">                     
+                    <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/adminAccepting">Početna
+                            </a>
+                         </li>
+                     </div>
+                    
+
+                    <div *ngIf="korisnik.tip!='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/allGroups">Početna
+                            </a>
+                         </li> 
+                    </div>
+                     
+                    
+
+                     <div *ngIf="korisnik.tip=='profesor'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/groupCreating">Napravi grupu
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/lessons">Sve lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='student'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/globalLessons">Globalne lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/profile">Moj profil
+                        </a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                    
+                </ul>
+            </nav>
+         </div>
+    </div>
+<div class="row text-center" >
+    <div class="col-12">
+
+       
+        <table class="table table-dark table-striped" >
+
+            <tbody>
+
+                <tr>
+                    <td colspan='2'> 
+                        <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Unesite podatke grupe</h3>
+                    </td>
+                
+                </tr>
+        <tr>
+        
+            <td>Ime grupe</td>
+            <td>
+                <input type="text" name="firstname" [(ngModel)]="imeGrupe" >
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Godina</td>
+            <td>
+                <input type="text" name="lastname" [(ngModel)]="godinaGrupe">
+            </td>
+        </tr>
+        <tr>
+            <td>Slika</td>
+            <td>
+                <input type='file' name='type' (change)='uploadFile($event)' >
+            </td>
+        </tr>
+        
+      
+       
+        <tr>
+            <td colspan='2'> 
+                <button class="btn btn-primary btn-lg" (click)="dodajGrupu()" > Napravi grupu </button>
+            </td>
+        
+        </tr>
+      
+        <tr>
+            <td colspan='2' > 
+                <span class="correct">{{message}}</span>
+            </td>
+        
+        </tr>
+    </tbody>
+            
+            
+</table>
+
+</div>
+</div>
+
+
+<div class="text-center" style="display:flex;flex-direction: row;justify-content: space-around;">
+    <img src="../../assets/images/group3.jpg" width="600px" height="450px">
+    <img src="../../assets/images/group5.jpg" width="600px" height="450px">
+    <img src="../../assets/images/group4.jpg" width="600px" height="450px">
+</div>
+
+<div class="row" >
+    <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vučinić - Elektrotehnički fakultet 2022.All rights reserved</div>
+</div>

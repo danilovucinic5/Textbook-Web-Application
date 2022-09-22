@@ -1,0 +1,147 @@
+
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav"> 
+
+
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/">Početna
+                        </a>
+                     </li>
+                    
+                    
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/register">Registruj se
+                        </a>
+                     </li>
+                    
+                    
+                </ul>
+            </nav>
+         </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<div class="row text-center" >
+    <div class="col-12">
+
+       
+        <table class="table table-dark table-striped" >
+
+            <tbody>
+
+                <tr>
+                    <td colspan='2'> 
+                        <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Registruj se</h3>
+                    </td>
+                
+                </tr>
+        <tr>
+        
+            <td>Ime</td>
+            <td>
+                <input type="text" name="firstname" [(ngModel)]="firstname" >
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Prezime</td>
+            <td>
+                <input type="text" name="lastname" [(ngModel)]="lastname">
+            </td>
+        </tr>
+        <tr>
+            <td>Korisničko ime</td>
+            <td>
+                <input type="text" name="username" [(ngModel)]="username">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Lozinka</td>
+            <td>
+                <input type="password"   name="password"  [(ngModel)]="password">
+            </td>
+        </tr>
+        <tr>
+            <td>Verifikacija lozinke</td>
+            <td>
+                <input type="password" name="passwordVer"  [(ngModel)]="passwordVer">
+            </td>
+        </tr>
+        <tr>
+            <td>Tip</td>
+            <td>
+                <input type="radio"  value="profesor" name="type"  [(ngModel)]="type"> Profesor
+                <input type="radio"  value="student" name="type"  [(ngModel)]="type"> Student
+            </td>
+        </tr>
+       
+       
+        <tr>
+            <td>Telefon</td>
+            <td>
+                <input type="text" name="telephone"  [(ngModel)]="telephone">
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" name="email"  [(ngModel)]="email">
+            </td>
+        </tr>
+        <tr>
+            <td>Slika</td>
+            <td>
+                <input type='file' name='type' (change)='uploadFile($event)' >
+            </td>
+        </tr>
+      
+        
+       
+        <tr>
+            <td colspan='2'> 
+                <button class="btn btn-primary btn-lg" (click)="register()" >Registruj se </button>
+            </td>
+        
+        </tr>
+        <tr>
+            <td colspan='2'> 
+                <span class="error">{{messageError}}</span>
+            </td>
+        
+        </tr>
+        <tr>
+            <td colspan='2'> 
+                <span class="correct">{{messageCorrect}}</span>
+            </td>
+        
+        </tr>
+    </tbody>
+            
+            
+</table>
+
+</div>
+</div>
+<div class="text-center" style="background-color:black;display:flex;flex-direction: row;justify-content: space-around;">
+    
+    <img src="../../assets/images/picture3.jpg" width="600px" height="400px">
+<img src="../../assets/images/picture8.jpg" width="600px" height="400px">
+<img src="../../assets/images/picture4.jpg" width="600px" height="400px">
+</div>
+<div class="row" >
+    <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vučinić - Elektrotehnički fakultet 2022.All rights reserved</div>
+</div>

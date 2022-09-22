@@ -1,0 +1,103 @@
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">                     
+                    <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/adminAccepting">Početna
+                            </a>
+                         </li>
+                     </div>
+                    
+
+                    <div *ngIf="korisnik.tip!='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/allGroups">Početna
+                            </a>
+                         </li>
+                    </div>
+                     
+                    
+
+                     <div *ngIf="korisnik.tip=='profesor'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/groupCreating">Napravi grupu
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='admin'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/lessons">Sve lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <div *ngIf="korisnik.tip=='student'">
+                        <li class="nav-item">
+                            <a class="nav-link "  style="color:white" href="http://localhost:4200/globalLessons">Globalne lekcije
+                            </a>
+                         </li>
+                     </div>
+
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/profile">Moj profil
+                        </a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                </ul>
+            </nav>
+         </div>
+    </div>
+<div class="row text-center" >
+    <div class="col-12">
+        <h1>{{lekcija.ime}}</h1>      
+    </div>
+</div>
+<div class="row text-center" >
+    <div class="col-12">
+      <img  style="max-width:400px;max-height:400px;width:auto;height:auto;" src="{{lekcija.slika}}"> 
+    </div>
+</div>
+    <hr>
+<div *ngFor="let poglavlje of lekcija.poglavlja;let i = index">
+    <div class="row text-center" >
+        <div class="col-12">
+            
+         <h4>{{i+1}}.{{poglavlje.ime}}</h4>          
+        </div>
+
+    </div>
+
+    <div class="row text-center" >
+        <div class="col-12">
+            
+            {{poglavlje.text}}          
+        </div>
+
+    </div>
+    <div class="row text-center" >
+        <div class="col-12">
+            <img  style="max: width 500px;max-height:500px;width:auto;height:auto;" src="{{poglavlje.slika}}"> 
+   
+        </div>
+
+    </div>
+<hr>
+    
+</div>
+
+        
+
+
+
+
+<div class="row" >
+    <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vučinić - Elektrotehnički fakultet 2022.All rights reserved</div>
+</div>
